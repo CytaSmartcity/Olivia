@@ -20,3 +20,6 @@ Route::get('/botman/tinker', 'BotManController@tinker');
 
 Route::resource('complains', 'ComplainController');
 
+Route::get('/fuel', function() {
+    return \DB::table('fuel_records')->orderBy('fuel_price')->get();
+});

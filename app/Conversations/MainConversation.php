@@ -31,6 +31,8 @@ class MainConversation extends Conversation
             if ($answer->isInteractiveMessageReply()) {
                 switch ($answer->getValue()) {
                     case 'fuel':
+                        return $this->checkFuelPrices();
+
                         return $this->say('Checking fuel prices..');
                     case 'complain':
                         //return $this->say('Registering complain..');
@@ -95,5 +97,15 @@ class MainConversation extends Conversation
             });
         });
 
+    }
+
+
+    private function checkFuelPrices()
+    {
+        $this->bot->receivesLocation(function($bot, Location $location) {
+            $lat = $location->getLatitude();
+            $lng = $location->getLongitude();
+            \Log::debug($lat, $lng);
+        });
     }
 }
