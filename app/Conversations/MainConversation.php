@@ -8,7 +8,7 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
 
-class ExampleConversation extends Conversation
+class MainConversation extends Conversation
 {
 
     /**
@@ -17,7 +17,7 @@ class ExampleConversation extends Conversation
     public function askReason()
     {
         $this->say('Hello dude 🤘');
-        $question = Question::create('How can I help you today?')
+        $question = Question::create('How can I help you?')
                             ->fallback('It looks like this is not supported yet. We will include it in the next version though.')
                             ->callbackId('ask_reason')
                             ->addButtons([
@@ -73,6 +73,22 @@ class ExampleConversation extends Conversation
                 \Log::debug($e->getMessage());
             }
             $this->say('Your complain has been submitted successfully!');
+
+            $question = Question::create('Do you need anything else?')
+                                ->fallback('It seems like there is a problem with our connection. :/')
+                                ->callbackId('anything_else')
+                                ->addButtons([
+                                    Button::create('Yes!')->value('yes'),
+                                    Button::create('No, thank you')->value('no'),
+                                ]);
+
+            $this->ask($question, function(Answer $answer) {
+                // Detect if button was clicked:
+                if ($answer->isInteractiveMessageReply()) {
+                    $selectedValue = $answer->getValue(); // will be either 'yes' or 'no'
+                    $selectedText  = $answer->getText(); // will be either 'Of course' or 'Hell no!'
+                }
+            });
         });
 
     }

@@ -15,6 +15,7 @@
                 </a>
             </div>
            @include('includes.sidebar')
+        </div>
         <div class="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">

@@ -11,11 +11,13 @@ class ComplainController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Complain[]|\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return Complain::all();
+        $complains = Complain::all();
+
+        return \view('tables', \compact('complains'));
     }
 
 
