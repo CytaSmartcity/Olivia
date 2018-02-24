@@ -8,7 +8,7 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
 
-class ExampleConversation extends Conversation
+class MainConversation extends Conversation
 {
 
     /**
