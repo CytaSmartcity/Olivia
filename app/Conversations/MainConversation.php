@@ -87,6 +87,11 @@ class MainConversation extends Conversation
                 if ($answer->isInteractiveMessageReply()) {
                     $selectedValue = $answer->getValue(); // will be either 'yes' or 'no'
                     $selectedText  = $answer->getText(); // will be either 'Of course' or 'Hell no!'
+                    if ($selectedValue === 'yes') {
+                        $this->bot->startConversation(new MainConversation());
+                    } else {
+                        $this->say('No problem! I will be here when you need me again :)');
+                    }
                 }
             });
         });
