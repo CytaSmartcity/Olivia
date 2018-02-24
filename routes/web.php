@@ -13,7 +13,7 @@
 
 Route::get('/', function() {
     return view('welcome');
-});
+})->name('dashboard');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
