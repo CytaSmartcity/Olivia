@@ -8,7 +8,7 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
 
-class MainConversation extends Conversation
+class ExampleConversation extends Conversation
 {
 
     /**
@@ -34,8 +34,8 @@ class MainConversation extends Conversation
                     case 'fuel':
                         return $this->say('Checking fuel prices..');
                     case 'complain':
+                        //return $this->say('Registering complain..');
                         return $this->addComplain();
-                    //return $this->say('Registering complain..');
                     case 'parking':
                         return $this->say('Checking parking spaces..');
                     case 'pay_fine':
@@ -62,7 +62,7 @@ class MainConversation extends Conversation
     private function addComplain()
     {
 
-        return $this->ask('Please describe the issue as detailed as possible', function(Answer $answer) {
+        $this->ask('Please describe the issue as detailed as possible', function(Answer $answer) {
             try {
                 $complain = new Complain(['description' => $answer->getText()]);
 
@@ -70,10 +70,9 @@ class MainConversation extends Conversation
 
             } catch (\Exception $e) {
                 \Log::debug($answer);
-                \Log::debug($complain);
                 \Log::debug($e->getMessage());
             }
-            $this->say('Submitting complain..');
+            $this->say('Your complain has been submitted successfully!');
         });
 
     }
