@@ -1,8 +1,8 @@
 <div class="sidebar-wrapper">
     <ul class="nav">
         <li>
-            <a href="/">
-                <i class="now-ui-icons design_app"></i>
+        <li @if (\Route::getCurrentRoute()->getPath()==='/') class="active" @endif>
+        <i class="now-ui-icons design_app"></i>
                 <p>Dashboard</p>
             </a>
         </li>
@@ -30,7 +30,7 @@
                 <p>User Profile</p>
             </a>
         </li> -->
-        <li class="active">
+        <li @if (\Route::getCurrentRoute()->getPath()==='/complains') class="active" @endif>
             <a href="/complains">
                 <i class="now-ui-icons design_bullet-list-67"></i>
                 <p>Complains</p>
