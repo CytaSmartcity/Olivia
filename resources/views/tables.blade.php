@@ -98,8 +98,11 @@
                                             <th>
                                                 Description
                                             </th>
-                                            <th class="text-right">
+                                            <th>
                                                 Location
+                                            </th>
+                                            <th class="text-right">
+                                                Time
                                             </th>
                                         </thead>
                                         <tbody>
@@ -111,8 +114,11 @@
                                                 <td>
                                                     {{ $complain->description }}
                                                 </td>
-                                                <td class="text-right">
+                                                <td>
                                                     Nicosia
+                                                </td>
+                                                <td class="text-right">
+                                                    {{ $complain->created_at->diffForHumans() }}
                                                 </td>
                                             </tr>
                                             @endforeach
