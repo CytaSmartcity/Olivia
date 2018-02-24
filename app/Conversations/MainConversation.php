@@ -16,7 +16,6 @@ class MainConversation extends Conversation
      */
     public function askReason()
     {
-        $this->say('Hello dude 🤘');
         $question = Question::create('How can I help you?')
                             ->fallback('It looks like this is not supported yet. We will include it in the next version though.')
                             ->callbackId('ask_reason')
