@@ -96,7 +96,7 @@
                                                 Name
                                             </th>
                                             <th>
-                                                City
+                                                Description
                                             </th>
                                             <th class="text-right">
                                                 Location
