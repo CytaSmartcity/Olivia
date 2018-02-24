@@ -209,7 +209,7 @@ demo = {
           data: {
               labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
               datasets: [{
-                  label: "Data",
+                  label: "Complains",
                   borderColor: chartColor,
                   pointBorderColor: chartColor,
                   pointBackgroundColor: "#1e3d60",
