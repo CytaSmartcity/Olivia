@@ -16,8 +16,9 @@ class ComplainController extends Controller
     public function index()
     {
         $complains = Complain::all();
+        $title     = 'Complains';
 
-        return \view('tables', \compact('complains'));
+        return \view('tables', \compact('complains', 'title'));
     }
 
 
