@@ -1,12 +1,12 @@
 <div class="sidebar-wrapper">
     <ul class="nav">
         <li>
-            <a href="../examples/dashboard.html">
+            <a href="/">
                 <i class="now-ui-icons design_app"></i>
                 <p>Dashboard</p>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="../examples/icons.html">
                 <i class="now-ui-icons education_atom"></i>
                 <p>Icons</p>
@@ -29,14 +29,14 @@
                 <i class="now-ui-icons users_single-02"></i>
                 <p>User Profile</p>
             </a>
-        </li>
+        </li> -->
         <li class="active">
-            <a href="../examples/tables.html">
+            <a href="/complains">
                 <i class="now-ui-icons design_bullet-list-67"></i>
-                <p>Table List</p>
+                <p>Complains</p>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="../examples/typography.html">
                 <i class="now-ui-icons text_caps-small"></i>
                 <p>Typography</p>
@@ -47,6 +47,6 @@
                 <i class="now-ui-icons arrows-1_cloud-download-93"></i>
                 <p>Upgrade to PRO</p>
             </a>
-        </li>
+        </li> -->
     </ul>
 </div>
