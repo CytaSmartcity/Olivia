@@ -39,19 +39,7 @@
             </div>
             <div class="content">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h4 class="card-title">Number of Complains</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="lineChartExample"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="card card-chart">
                             <div class="card-header">
                                 <h4 class="card-title">All Users</h4>
@@ -63,10 +51,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="card card-chart">
                             <div class="card-header">
-                                <h4 class="card-title">Most common Complains</h4>
+                                <h4 class="card-title">Complain Analytics</h4>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
