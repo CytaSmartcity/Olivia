@@ -10,9 +10,6 @@
             </div>
             @include('includes.sidebar')
         </div>
-        <div class="panel-header panel-header-lg">
-                <canvas id="bigDashboardChart"></canvas>
-            </div>
         <div class="main-panel">
             <div class="panel-header panel-header-sm">
             </div>
@@ -25,7 +22,19 @@
                             </div>
                             <div class="card-body ">
                                 <div id="map" class="map">
-
+                                <script>
+                                    function initMap() {
+                                        var uluru = {lat: -25.363, lng: 131.044};
+                                        var map = new google.maps.Map(document.getElementById('map'), {
+                                        zoom: 4,
+                                        center: uluru
+                                        });
+                                        var marker = new google.maps.Marker({
+                                        position: uluru,
+                                        map: map
+                                        });
+                                    }
+                                </script>
                                 </div>
                             </div>
                         </div>
