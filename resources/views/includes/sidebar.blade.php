@@ -12,14 +12,14 @@
                 <i class="now-ui-icons education_atom"></i>
                 <p>Icons</p>
             </a>
-        </li>
+        </li>-->
         <li>
-            <a href="../examples/map.html">
+            <a href="/map">
                 <i class="now-ui-icons location_map-big"></i>
                 <p>Maps</p>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="../examples/notifications.html">
                 <i class="now-ui-icons ui-1_bell-53"></i>
                 <p>Notifications</p>
@@ -30,7 +30,7 @@
                 <i class="now-ui-icons users_single-02"></i>
                 <p>User Profile</p>
             </a>
-        </li> -->
+        </li>  -->
         <li @if (\Route::current()->getName()==='complains.index') class="active" @endif>
             <a href="/complains">
                 <i class="now-ui-icons design_bullet-list-67"></i>
