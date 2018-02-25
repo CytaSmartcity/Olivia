@@ -320,7 +320,7 @@ ul li:hover {
       </div>
     </div>
 
-    <<script>
+    <script>
         var cardDrop = document.getElementById('card-dropdown');
 var activeDropdown;
 cardDrop.addEventListener('click',function(){
