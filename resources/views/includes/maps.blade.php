@@ -26,7 +26,7 @@
                                         
                                         var locations = [
                                             @foreach($fuel as $fuel_location) 
-                                                ["{{ $fuel_location->fuel_company_name }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longtitude }}],
+                                                ["{{ $fuel_location->fuel_company_name }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longitude }}],
                                             @endforeach
                                             ];
 
