@@ -151,12 +151,6 @@
                           </table>
                         </div>
                       </div>
-                      <div class="card-footer">
-                        <hr>
-                        <div class="stats">
-                          <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
-                        </div>
-                      </div>
                   </div>
                   </div>
                   <div class="col-md-6">
