@@ -380,13 +380,12 @@
             node.classList.add('visible');
             activeDropdown = node;
         }
-        ;
-    })
+    });
 
     window.onclick = function (e) {
-        console.log(e.target.tagName)
+        console.log(e.target.tagName);
         console.log('dropdown');
-        console.log(activeDropdown)
+        console.log(activeDropdown);
         if (e.target.tagName === 'LI' && activeDropdown) {
             if (e.target.innerHTML === 'Master Card') {
                 document.getElementById('credit-card-image').src = 'https://dl.dropboxusercontent.com/s/2vbqk5lcpi7hjoc/MasterCard_Logo.svg.png';
