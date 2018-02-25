@@ -35,7 +35,7 @@
                                             var infowindow = new google.maps.InfoWindow(); /* SINGLE */
                                             var map = new google.maps.Map(document.getElementById('map'), {
                                                 zoom: 9,
-                                                center: new google.maps.LatLng(35.1677652, 32.85651)
+                                                center: new google.maps.LatLng(35.0093722, 33.4933162)
                                             });
 
                                             function placeMarker( loc ) {
