@@ -175,9 +175,6 @@
                                 <th>
                                     Description
                                 </th>
-                                <th>
-                                    Location
-                                </th>
                                 <th class="text-right">
                                     Time
                                 </th>
@@ -190,9 +187,6 @@
                                     </td>
                                     <td>
                                         {{ $complain->description }}
-                                    </td>
-                                    <td>
-                                        Nicosia
                                     </td>
                                     <td class="text-right">
                                         {{ $complain->created_at->diffForHumans() }}
