@@ -21,7 +21,7 @@
         </li>
         <li @if (\Route::current()->getName()==='fines.index') class="active" @endif>
             <a href="/fines">
-                <i class="now-ui-icons location_map-big"></i>
+                <i class="now-ui-icons ui-1_bell-53"></i>
                 <p>Fines</p>
             </a>
         </li>
