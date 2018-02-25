@@ -10,6 +10,9 @@
             </div>
             @include('includes.sidebar')
         </div>
+        <div class="panel-header panel-header-lg">
+                <canvas id="bigDashboardChart"></canvas>
+            </div>
         <div class="main-panel">
             <div class="panel-header panel-header-sm">
             </div>
