@@ -3,9 +3,6 @@
 <body class="">
     <div class="wrapper ">
     <div class="sidebar" data-color="orange">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
             <div class="logo">
                 <a href="https://www.facebook.com/Olivia-221586811741271/" class="simple-text logo-normal">
                     Olivia
@@ -21,10 +18,12 @@
                     <div class="col-md-12">
                         <div class="card ">
                             <div class="card-header ">
-                                Google Maps
+                                Petrol Stations
                             </div>
                             <div class="card-body ">
-                                <div id="map" class="map"></div>
+                                <div id="map" class="map">
+
+                                </div>
                             </div>
                         </div>
                     </div>
