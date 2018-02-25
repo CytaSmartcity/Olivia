@@ -7,6 +7,7 @@ use BotMan\BotMan\Messages\Conversations\Conversation;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
+use BotMan\Drivers\Facebook\Extensions\ButtonTemplate;
 use BotMan\Drivers\Facebook\Extensions\Element;
 use BotMan\Drivers\Facebook\Extensions\ElementButton;
 use BotMan\Drivers\Facebook\Extensions\GenericTemplate;
@@ -42,7 +43,8 @@ class MainConversation extends Conversation
                     case 'pay_fine':
                         return $this->say('Paying fine..');
                     case 'pay_parking':
-                        return $this->payParking();
+                        return $this->say('Paying parking..');
+                    //return $this->payParking();
                     default:
                         return $this->say('It looks like this is not supported yet. We will include it in the next version though.');
                 }
@@ -133,32 +135,13 @@ class MainConversation extends Conversation
 
     private function payParking()
     {
-        $this->say('Paying parking..');
         //$this->bot->typesAndWaits(2);
-        $parking_question = Question::create('Before paying your parking you need to login to Bank of Cyprus.')
-                                    ->fallback('It seems like there is a problem with our connection. :/')
-                                    ->addButtons([
-                                        ElementButton::create('Sure!')->url('https://olivia-cyta.herokuapp.com/login'),
-                                        Button::create('Nope')->value('no'),
-                                    ]);
 
-        //try {
-            $this->ask($parking_question, function(Answer $parking_answer) {
-                // Detect if button was clicked:
-                if ($parking_answer->isInteractiveMessageReply()) {
-                    $selectedValue = $parking_answer->getValue();
-
-                    if ($selectedValue === 'no') {
-                        $this->bot->typesAndWaits(1);
-                        $this->bot->reply('No problem! I will be here when you want to pay it :)');
-                    } else {
-                        $this->bot->reply('Ok');
-                    }
-                }
-            });
-        //} catch (\Exception $e) {
-        //
-        //}
+        $this->bot->reply(ButtonTemplate::create('Before paying your parking you need to login to Bank of Cyprus.')
+                                  ->addButton(ElementButton::create('No')
+                                                           ->type('postback')
+                                                           ->payload('no'))
+                                  ->addButton(ElementButton::create('Sure!')->url('https://olivia-cyta.herokuapp.com/login')));
 
         return true;
     }
