@@ -303,7 +303,7 @@ demo = {
           data: {
               labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
               datasets: [{
-                  label: "Active Users",
+                  label: "All Complains",
                   borderColor: "#f96332",
                   pointBorderColor: "#FFF",
                   pointBackgroundColor: "#f96332",
