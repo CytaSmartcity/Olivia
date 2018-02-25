@@ -6,11 +6,8 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                    CT
-                </a>
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Creative Tim
+                <a href="https://www.facebook.com/Olivia-221586811741271/" class="simple-text logo-normal">
+                    Olivia
                 </a>
             </div>
             @include('includes.sidebar')
