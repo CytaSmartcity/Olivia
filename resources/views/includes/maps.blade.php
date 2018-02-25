@@ -34,7 +34,7 @@
 
                                             var infowindow = new google.maps.InfoWindow(); /* SINGLE */
                                             var map = new google.maps.Map(document.getElementById('map'), {
-                                                zoom: 8,
+                                                zoom: 12,
                                                 center: new google.maps.LatLng(35.1677652, 32.85651)
                                             });
 
