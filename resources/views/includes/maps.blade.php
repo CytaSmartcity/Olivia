@@ -33,7 +33,7 @@
 
                                             var infowindow = new google.maps.InfoWindow(); /* SINGLE */
                                             var map = new google.maps.Map(document.getElementById('map'), {
-                                                zoom: 12,
+                                                zoom: 4,
                                                 center: new google.maps.LatLng(45, 15)
                                             });
 
