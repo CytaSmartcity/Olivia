@@ -19,7 +19,6 @@ class MainConversation extends Conversation
      */
     public function askReason()
     {
-        $this->bot->typesAndWaits(2);
         $question = Question::create('How can I help you?')
                             ->fallback('It looks like this is not supported yet. We will include it in the next version though.')
                             ->callbackId('ask_reason')
@@ -36,19 +35,14 @@ class MainConversation extends Conversation
                 switch ($answer->getValue()) {
                     case 'fuel':
                         return $this->checkFuelPrices();
-
-                    //return $this->say('Checking fuel prices..');
                     case 'complain':
-                        //return $this->say('Registering complain..');
                         return $this->addComplain();
                     case 'parking':
-                        return $this->payParking();
-
                         return $this->say('Checking parking spaces..');
                     case 'pay_fine':
                         return $this->say('Paying fine..');
                     case 'pay_parking':
-                        return $this->say('Paying parking..');
+                        return $this->payParking();
                     default:
                         return $this->say('It looks like this is not supported yet. We will include it in the next version though.');
                 }
@@ -139,7 +133,7 @@ class MainConversation extends Conversation
 
     private function payParking()
     {
-        $this->bot->typesAndWaits(2);
+        //$this->bot->typesAndWaits(2);
         $question = Question::create('Before paying your parking you need to login to Bank of Cyprus.')
                             ->fallback('It seems like there is a problem with our connection. :/')
                             ->callbackId('pay_parking')
@@ -148,7 +142,6 @@ class MainConversation extends Conversation
                                 Button::create('Nope')->value('no'),
                             ]);
 
-        $this->bot->typesAndWaits(1);
         $this->ask($question, function(Answer $answer) {
             // Detect if button was clicked:
             if ($answer->isInteractiveMessageReply()) {
