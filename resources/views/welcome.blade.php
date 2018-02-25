@@ -39,6 +39,18 @@
             </div>
             <div class="content">
                 <div class="row">
+                <div class="col-lg-4" style="display: none">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h4 class="card-title">Number of Complains</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="lineChartExample"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="card card-chart">
                             <div class="card-header">
