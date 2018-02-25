@@ -7,6 +7,9 @@ use BotMan\BotMan\Messages\Conversations\Conversation;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
+use BotMan\Drivers\Facebook\Extensions\Element;
+use BotMan\Drivers\Facebook\Extensions\ElementButton;
+use BotMan\Drivers\Facebook\Extensions\GenericTemplate;
 
 class MainConversation extends Conversation
 {
@@ -16,6 +19,7 @@ class MainConversation extends Conversation
      */
     public function askReason()
     {
+        $this->bot->typesAndWaits(2);
         $question = Question::create('How can I help you?')
                             ->fallback('It looks like this is not supported yet. We will include it in the next version though.')
                             ->callbackId('ask_reason')
@@ -33,7 +37,7 @@ class MainConversation extends Conversation
                     case 'fuel':
                         return $this->checkFuelPrices();
 
-                        return $this->say('Checking fuel prices..');
+                    //return $this->say('Checking fuel prices..');
                     case 'complain':
                         //return $this->say('Registering complain..');
                         return $this->addComplain();
@@ -63,6 +67,7 @@ class MainConversation extends Conversation
     private function addComplain()
     {
 
+        $this->bot->typesAndWaits(1);
         $this->ask('Please describe the issue as detailed as possible', function(Answer $answer) {
             try {
                 $complain = new Complain(['description' => $answer->getText()]);
@@ -73,6 +78,7 @@ class MainConversation extends Conversation
                 \Log::debug($answer);
                 \Log::debug($e->getMessage());
             }
+            $this->bot->typesAndWaits(2);
             $this->say('Your complain has been submitted successfully!');
 
             $question = Question::create('Do you need anything else?')
@@ -83,14 +89,17 @@ class MainConversation extends Conversation
                                     Button::create('No, thank you')->value('no'),
                                 ]);
 
+            $this->bot->typesAndWaits(1);
             $this->ask($question, function(Answer $answer) {
                 // Detect if button was clicked:
                 if ($answer->isInteractiveMessageReply()) {
                     $selectedValue = $answer->getValue(); // will be either 'yes' or 'no'
                     $selectedText  = $answer->getText(); // will be either 'Of course' or 'Hell no!'
+
                     if ($selectedValue === 'yes') {
                         $this->bot->startConversation(new MainConversation());
                     } else {
+                        $this->bot->typesAndWaits(1);
                         $this->say('No problem! I will be here when you need me again :)');
                     }
                 }
@@ -102,10 +111,49 @@ class MainConversation extends Conversation
 
     private function checkFuelPrices()
     {
-        $this->bot->receivesLocation(function($bot, Location $location) {
-            $lat = $location->getLatitude();
-            $lng = $location->getLongitude();
-            \Log::debug($lat, $lng);
-        });
+        $fuel_prices = \DB::table('fuel_records')
+                          ->where('station_city', 'ΛΕΥΚΩΣΙΑ')
+                          ->orderBy('fuel_price')
+                          ->take(5)
+                          ->get()
+                          ->toArray();
+
+        $locations = [];
+        \array_map(function($item) use (&$locations) {
+            $link = "https://www.google.com/maps/dir/{$item->latitude},{$item->longitude}/'@35.1066982,33.2756088'/";
+
+            $locations[] = Element::create($item->station_name)
+                                  ->subtitle($item->fuel_price.'('.$item->fuel_company_name.')')
+                                  ->addButton(ElementButton::create('Directions')->url($link));
+
+            // Create attachment
+            //$item = (array)$item;
+            //
+            //\Log::debug($item);
+            //
+            //$attachment = new Location((array)$item['latitude'], $item['longitude'], [//'custom_payload' => true,
+            //]);
+            //
+            //// Build message object
+            //$locations[] = OutgoingMessage::create($item['fuel_price'].' '.$item['station_name'])
+            //                              ->withAttachment($attachment);
+
+        }, $fuel_prices);
+
+        $this->bot->reply(GenericTemplate::create()
+                                         ->addImageAspectRatio(GenericTemplate::RATIO_SQUARE)
+                                         ->addElements($locations));
+
+        //// Create attachment
+        //$attachment = new Location(61.766130, -6.822510, [
+        //    'custom_payload' => true,
+        //]);
+        //
+        //// Build message object
+        //$message = OutgoingMessage::create('This is my text')->withAttachment($attachment);
+        //
+        //// Reply message object
+        //$bot->reply($message);
+
     }
 }
