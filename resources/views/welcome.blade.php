@@ -54,7 +54,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="card card-chart">
                             <div class="card-header">
-                                <h4 class="card-title">All products</h4>
+                                <h4 class="card-title">All Users</h4>
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
@@ -80,7 +80,6 @@
                   <div class="col-md-6">
                     <div class="card card-tasks">
                       <div class="card-header">
-                        <h5 class="card-category">Backend development</h5>
                         <h4 class="card-title">Tasks</h4>
                       </div>
                       <div class="card-body">
