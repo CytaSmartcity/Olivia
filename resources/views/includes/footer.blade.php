@@ -4,7 +4,8 @@
 <script src="/assets/js/core/bootstrap.min.js"></script>
 <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyButxmbes8jFopZ6TjjaGaqVDt_ro9qhnE"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyButxmbes8jFopZ6TjjaGaqVDt_ro9qhnE&callback=initMap"
+  type="text/javascript"></script>
 <!-- Chart JS -->
 <script src="/assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
