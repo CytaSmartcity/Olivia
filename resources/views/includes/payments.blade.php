@@ -1,4 +1,4 @@
-<<style lang="css">
+<style lang="css">
     @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 body,html {
   height:100%;
@@ -320,7 +320,7 @@ ul li:hover {
       </div>
     </div>
 
-    <<script>
+    <script>
         var cardDrop = document.getElementById('card-dropdown');
 var activeDropdown;
 cardDrop.addEventListener('click',function(){
