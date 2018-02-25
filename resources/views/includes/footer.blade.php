@@ -19,5 +19,10 @@
         demo.initDashboardPageCharts();
     });
 </script>
+<script>
+function deleteRow() {
+    document.getElementById("task_table").deleteRow(0);
+}
+</script>
 
 </html>

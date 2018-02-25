@@ -84,7 +84,7 @@
                       </div>
                       <div class="card-body">
                         <div class="table-full-width table-responsive">
-                          <table class="table">
+                          <table class="table" id="task_table">
                             <tbody>
                                 @foreach($complains as $complain)
                                 <tr>
@@ -102,7 +102,7 @@
                                         <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                                             <i class="now-ui-icons ui-2_settings-90"></i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                                        <button type="button" onclick="deleteRow()" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                                             <i class="now-ui-icons ui-1_simple-remove"></i>
                                         </button>
                                     </td>
