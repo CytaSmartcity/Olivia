@@ -28,8 +28,9 @@ Route::get('/pay', function() {
 });
 
 Route::get('/map', function() {
+    $fuel = \DB::table('fuel_records')->get();
 
-    return view('includes.maps');
+    return view('includes.maps', compact('fuel'));
 });
 
 Route::get('/test', function() {

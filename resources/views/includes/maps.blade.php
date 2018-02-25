@@ -23,10 +23,11 @@
                             <div class="card-body ">
                                 <div id="map" class="map">
                                     <script>
+                                        
                                         var locations = [
-                                            ["Split",     43.5148515, 16.4490835],
-                                            ["Zagreb",    45.840196,  15.9643316],
-                                            ["Dubrovnik", 42.6457256, 18.094058]
+                                            @foreach($fuel as $fuel_location) 
+                                                ["{{ $fuel_location->fuel_company_name }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longtitude }}],
+                                            @endforeach
                                             ];
 
                                         function initMap(){
