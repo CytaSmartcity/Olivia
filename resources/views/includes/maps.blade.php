@@ -23,10 +23,10 @@
                             <div class="card-body ">
                                 <div id="map" class="map">
                                     <script>
-                                        
+
                                         var locations = [
-                                            @foreach($fuel as $fuel_location) 
-                                                ["{{ $fuel_location->fuel_company_name.' '.$fuel_location->fuel_price }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longitude }}],
+                                            @foreach($fuel as $fuel_location)
+                                                ["{{ $fuel_location->fuel_company_name.' '.$fuel_location->fuel_price.'€' }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longitude }}],
                                             @endforeach
                                             ];
 
@@ -57,7 +57,7 @@
                                             // and pass your iterating location as argument value:
                                             for(var i=0; i<locations.length; i++) {
                                                 placeMarker( locations[i] );
-                                            } 
+                                            }
                                         }
                                         google.maps.event.addDomListener(window, 'load', initMap);
                                     </script>
