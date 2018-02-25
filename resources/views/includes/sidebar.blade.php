@@ -13,10 +13,16 @@
                 <p>Icons</p>
             </a>
         </li>-->
-        <li>
+        <li @if (\Route::current()->getName()==='map') class="active" @endif>
             <a href="/map">
                 <i class="now-ui-icons location_map-big"></i>
                 <p>Maps</p>
+            </a>
+        </li>
+        <li @if (\Route::current()->getName()==='fines.index') class="active" @endif>
+            <a href="/fines">
+                <i class="now-ui-icons location_map-big"></i>
+                <p>Fines</p>
             </a>
         </li>
         <!-- <li>
