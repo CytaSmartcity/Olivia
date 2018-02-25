@@ -19,7 +19,6 @@ class MainConversation extends Conversation
      */
     public function askReason()
     {
-        $this->bot->typesAndWaits(2);
         $question = Question::create('How can I help you?')
                             ->fallback('It looks like this is not supported yet. We will include it in the next version though.')
                             ->callbackId('ask_reason')
@@ -36,17 +35,14 @@ class MainConversation extends Conversation
                 switch ($answer->getValue()) {
                     case 'fuel':
                         return $this->checkFuelPrices();
-
-                    //return $this->say('Checking fuel prices..');
                     case 'complain':
-                        //return $this->say('Registering complain..');
                         return $this->addComplain();
                     case 'parking':
                         return $this->say('Checking parking spaces..');
                     case 'pay_fine':
                         return $this->say('Paying fine..');
                     case 'pay_parking':
-                        return $this->say('Paying parking..');
+                        return $this->payParking();
                     default:
                         return $this->say('It looks like this is not supported yet. We will include it in the next version though.');
                 }
@@ -126,34 +122,36 @@ class MainConversation extends Conversation
                                   ->subtitle($item->fuel_price.'('.$item->fuel_company_name.')')
                                   ->addButton(ElementButton::create('Directions')->url($link));
 
-            // Create attachment
-            //$item = (array)$item;
-            //
-            //\Log::debug($item);
-            //
-            //$attachment = new Location((array)$item['latitude'], $item['longitude'], [//'custom_payload' => true,
-            //]);
-            //
-            //// Build message object
-            //$locations[] = OutgoingMessage::create($item['fuel_price'].' '.$item['station_name'])
-            //                              ->withAttachment($attachment);
-
         }, $fuel_prices);
 
         $this->bot->reply(GenericTemplate::create()
                                          ->addImageAspectRatio(GenericTemplate::RATIO_SQUARE)
                                          ->addElements($locations));
 
-        //// Create attachment
-        //$attachment = new Location(61.766130, -6.822510, [
-        //    'custom_payload' => true,
-        //]);
-        //
-        //// Build message object
-        //$message = OutgoingMessage::create('This is my text')->withAttachment($attachment);
-        //
-        //// Reply message object
-        //$bot->reply($message);
+    }
 
+
+    private function payParking()
+    {
+        //$this->bot->typesAndWaits(2);
+        $question = Question::create('Before paying your parking you need to login to Bank of Cyprus.')
+                            ->fallback('It seems like there is a problem with our connection. :/')
+                            ->callbackId('pay_parking')
+                            ->addButtons([
+                                ElementButton::create('Sure!')->url('https://olivia-cyta.herokuapp.com/login'),
+                                Button::create('Nope')->value('no'),
+                            ]);
+
+        $this->ask($question, function(Answer $answer) {
+            // Detect if button was clicked:
+            if ($answer->isInteractiveMessageReply()) {
+                $selectedValue = $answer->getValue(); // will be either 'yes' or 'no'
+
+                if ($selectedValue === 'no') {
+                    $this->bot->typesAndWaits(1);
+                    $this->say('No problem! I will be here when you want to pay it :)');
+                }
+            }
+        });
     }
 }
