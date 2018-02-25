@@ -365,7 +365,7 @@ demo = {
         data : {
           labels : ["January","February","March","April","May","June","July","August","September","October","November","December"],
           datasets: [{
-            label: "Active Countries",
+            label: "Monthly Complains",
             backgroundColor: gradientFill,
             borderColor: "#2CA8FF",
             pointBorderColor: "#FFF",
