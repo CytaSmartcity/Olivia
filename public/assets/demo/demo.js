@@ -81,7 +81,7 @@ demo = {
           data: {
               labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
               datasets: [{
-                  label: "Active Users",
+                  label: "Complains",
                   borderColor: "#f96332",
                   pointBorderColor: "#FFF",
                   pointBackgroundColor: "#f96332",
@@ -337,7 +337,7 @@ demo = {
           data: {
               labels: ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
               datasets: [{
-                  label: "Email Stats",
+                  label: "All Users",
                   borderColor: "#18ce0f",
                   pointBorderColor: "#FFF",
                   pointBackgroundColor: "#18ce0f",
