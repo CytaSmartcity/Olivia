@@ -1,4 +1,4 @@
-<<style lang="css">
+<style lang="css">
     @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 body,html {
   height:100%;
