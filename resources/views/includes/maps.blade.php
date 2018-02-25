@@ -45,13 +45,7 @@
                                         for (var i = 0; i < results.features.length; i++) {
                                         var coords = results.features[i].geometry.coordinates;
                                         var latLng = new google.maps.LatLng(coords[1],coords[0]);
-                                        var marker = new google.maps.Marker({
-                                            position: latLng,
-                                            map: map
-                                        });
-                                        }
-                                    }
-                                    var contentString = '<div id="content">'+
+                                        var contentString = '<div id="content">'+
                                         '<div id="siteNotice">'+
                                         '</div>'+
                                         '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -72,18 +66,19 @@
                                         '</div>'+
                                         '</div>';
 
-                                    var infowindow = new google.maps.InfoWindow({
-                                        content: contentString
-                                    });
-
-                                    var marker = new google.maps.Marker({
-                                        position: uluru,
-                                        map: map,
-                                        title: 'Uluru (Ayers Rock)'
-                                    });
-                                    marker.addListener('click', function() {
-                                        infowindow.open(map, marker);
-                                    });
+                                         var infowindow = new google.maps.InfoWindow({
+                                            content: contentString
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: latLng,
+                                            map: map,
+                                            title: 'Uluru (Ayers Rock)'
+                                        });
+                                        marker.addListener('click', function() {
+                                            infowindow.open(map, marker);
+                                        });
+                                        }
+                                    }
                                 </script>
                                 </div>
                             </div>
