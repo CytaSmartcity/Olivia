@@ -43,7 +43,7 @@ class MainConversation extends Conversation
                     case 'pay_fine':
                         return $this->say('Paying fine..');
                     case 'pay_parking':
-                        return $this->say('Paying parking..');
+                        return $this->payParking();
                     //return $this->payParking();
                     default:
                         return $this->say('It looks like this is not supported yet. We will include it in the next version though.');
