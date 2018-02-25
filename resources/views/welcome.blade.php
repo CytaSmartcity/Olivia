@@ -91,7 +91,7 @@
                                     <td>
                                         <div class="form-check">
                                             <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" checked="">
+                                                <input class="form-check-input" type="checkbox">
                                                 <span class="form-check-sign"></span>
                                             </label>
                                         </div>
