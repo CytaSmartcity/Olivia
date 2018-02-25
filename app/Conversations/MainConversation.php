@@ -42,6 +42,8 @@ class MainConversation extends Conversation
                     case 'pay_fine':
                         return $this->say('Paying fine..');
                     case 'pay_parking':
+                        $this->say('Paying fine..');
+
                         return $this->payParking();
                     default:
                         return $this->say('It looks like this is not supported yet. We will include it in the next version though.');
@@ -134,24 +136,26 @@ class MainConversation extends Conversation
     private function payParking()
     {
         //$this->bot->typesAndWaits(2);
-        $question = Question::create('Before paying your parking you need to login to Bank of Cyprus.')
-                            ->fallback('It seems like there is a problem with our connection. :/')
-                            ->callbackId('pay_parking')
-                            ->addButtons([
-                                ElementButton::create('Sure!')->url('https://olivia-cyta.herokuapp.com/login'),
-                                Button::create('Nope')->value('no'),
-                            ]);
-
-        $this->ask($question, function(Answer $answer) {
-            // Detect if button was clicked:
-            if ($answer->isInteractiveMessageReply()) {
-                $selectedValue = $answer->getValue(); // will be either 'yes' or 'no'
-
-                if ($selectedValue === 'no') {
-                    $this->bot->typesAndWaits(1);
-                    $this->say('No problem! I will be here when you want to pay it :)');
-                }
-            }
-        });
+        //$question = Question::create('Before paying your parking you need to login to Bank of Cyprus.')
+        //                    ->fallback('It seems like there is a problem with our connection. :/')
+        //                    ->callbackId('pay_parking')
+        //                    ->addButtons([
+        //                        ElementButton::create('Sure!')->url('https://olivia-cyta.herokuapp.com/login'),
+        //                        Button::create('Nope')->value('no'),
+        //                    ]);
+        //
+        //$this->ask($question, function(Answer $answer) {
+        //    // Detect if button was clicked:
+        //    if ($answer->isInteractiveMessageReply()) {
+        //        $selectedValue = $answer->getValue(); // will be either 'yes' or 'no'
+        //
+        //        if ($selectedValue === 'no') {
+        //            $this->bot->typesAndWaits(1);
+        //            $this->bot->say('No problem! I will be here when you want to pay it :)');
+        //        } else {
+        //            $this->bot->say('Ok');
+        //        }
+        //    }
+        //});
     }
 }
