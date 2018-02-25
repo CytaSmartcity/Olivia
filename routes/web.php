@@ -27,6 +27,11 @@ Route::get('/pay', function() {
     return view('includes.payments');
 });
 
+Route::get('/map', function() {
+
+    return view('includes.maps');
+});
+
 Route::get('/test', function() {
 
     $client = new Client();
