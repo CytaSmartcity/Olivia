@@ -32,7 +32,7 @@ class BOC
             'json'    => $body,
         ]);
 
-        dd($request->getBody()->getContents());
+        return true;
     }
 
 
