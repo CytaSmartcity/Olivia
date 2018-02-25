@@ -26,7 +26,7 @@
                                         
                                         var locations = [
                                             @foreach($fuel as $fuel_location) 
-                                                ["{{ $fuel_location->fuel_company_name }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longitude }}],
+                                                ["{{ $fuel_location->fuel_company_name.' '.$fuel_location->fuel_price }}",     {{ $fuel_location->latitude }} , {{ $fuel_location->longitude }}],
                                             @endforeach
                                             ];
 
@@ -34,7 +34,7 @@
 
                                             var infowindow = new google.maps.InfoWindow(); /* SINGLE */
                                             var map = new google.maps.Map(document.getElementById('map'), {
-                                                zoom: 4,
+                                                zoom: 8,
                                                 center: new google.maps.LatLng(45, 15)
                                             });
 
