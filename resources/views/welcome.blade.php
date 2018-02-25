@@ -86,6 +86,7 @@
                         <div class="table-full-width table-responsive">
                           <table class="table">
                             <tbody>
+                                @foreach($complains as $complain)
                                 <tr>
                                     <td>
                                         <div class="form-check">
@@ -96,7 +97,7 @@
                                         </div>
                                     </td>
 
-                                    <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>
+                                    <td class="text-left"> {{ $complain->description }} </td>
                                     <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                                             <i class="now-ui-icons ui-2_settings-90"></i>
@@ -106,47 +107,7 @@
                                         </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox">
-                                                <span class="form-check-sign"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-
-                                    <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                                            <i class="now-ui-icons ui-2_settings-90"></i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
-                                            <i class="now-ui-icons ui-1_simple-remove"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" checked="">
-                                                <span class="form-check-sign"></span>
-                                            </label>
-                                        </div>
-                                    </td>
-
-                                    <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                    </td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                                            <i class="now-ui-icons ui-2_settings-90"></i>
-                                        </button>
-                                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
-                                            <i class="now-ui-icons ui-1_simple-remove"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                           </table>
                         </div>
