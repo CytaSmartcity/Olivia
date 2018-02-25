@@ -163,97 +163,42 @@
                   <div class="col-md-6">
                       <div class="card">
                         <div class="card-header">
-                            <h5 class="card-category">All Persons List</h5>
-                            <h4 class="card-title"> Employees Stats</h4>
+                            <h4 class="card-title"> Latest Complains</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                               <table class="table">
                                 <thead class=" text-primary">
-                                  <th >
+                                <th>
                                     Name
-                                  </th>
-                                  <th >
-                                    Country
-                                  </th>
-                                  <th >
-                                    City
-                                  </th>
-                                  <th  class="text-right" >
-                                    Salary
-                                  </th>
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Location
+                                </th>
+                                <th class="text-right">
+                                    Time
+                                </th>
                                 </thead>
                                 <tbody>
-                                  <tr >
-                                    <td >
-                                      Dakota Rice
+                                @foreach($complains as $complain)
+                                <tr>
+                                    <td>
+                                        Anonymous
                                     </td>
-                                    <td >
-                                      Niger
+                                    <td>
+                                        {{ $complain->description }}
                                     </td>
-                                    <td >
-                                      Oud-Turnhout
+                                    <td>
+                                        Nicosia
                                     </td>
-                                    <td  class="text-right" >
-                                      $36,738
+                                    <td class="text-right">
+                                        {{ $complain->created_at->diffForHumans() }}
                                     </td>
-                                  </tr>
-                                  <tr >
-                                    <td >
-                                      Minerva Hooper
-                                    </td>
-                                    <td >
-                                      Curaçao
-                                    </td>
-                                    <td >
-                                      Sinaai-Waas
-                                    </td>
-                                    <td  class="text-right" >
-                                      $23,789
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td >
-                                      Sage Rodriguez
-                                    </td>
-                                    <td >
-                                      Netherlands
-                                    </td>
-                                    <td >
-                                      Baileux
-                                    </td>
-                                    <td  class="text-right" >
-                                      $56,142
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td >
-                                      Doris Greene
-                                    </td>
-                                    <td >
-                                      Malawi
-                                    </td>
-                                    <td >
-                                      Feldkirchen in Kärnten
-                                    </td>
-                                    <td  class="text-right" >
-                                      $63,542
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td >
-                                      Mason Porter
-                                    </td>
-                                    <td >
-                                      Chile
-                                    </td>
-                                    <td >
-                                      Gloucester
-                                    </td>
-                                    <td  class="text-right" >
-                                      $78,615
-                                    </td>
-                                  </tr>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                               </table>
                             </div>
